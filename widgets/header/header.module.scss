@@ -1,0 +1,294 @@
+.header {
+  background: #00030e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: var(--transition);
+
+  &.hidden {
+    transform: translateY(-100%);
+  }
+}
+
+.headerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.desktopNav {
+  @media (max-width: 992px) {
+    display: none;
+  }
+}
+
+.navMenu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.navLink {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: var(--transition);
+  padding: 0.5rem 0;
+  // position: relative;
+
+  &:hover {
+    color: var(--accent-color);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+.navItem {
+  &:hover {
+    .sectionsDropdown {
+      display: block;
+    }
+
+    .navLink {
+      color: var(--accent-color);
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &.active {
+    .navLink {
+      color: var(--accent-color);
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.sectionsDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100vw;
+  background-color: var(--darker-bg);
+  background: rgb(30, 30, 30);
+  padding: 1.5rem 0;
+  display: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sectionsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sectionsTitle {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sectionsList {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.sectionLink {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition);
+  font-size: 0.95rem;
+
+  &:hover {
+    color: var(--text-color);
+    transform: translateX(5px);
+  }
+}
+
+.burgerMenu {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1001;
+
+  @media (max-width: 992px) {
+    display: flex;
+  }
+
+  &.active {
+    .burgerLine {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
+  }
+}
+
+.burgerLine {
+  width: 25px;
+  height: 2px;
+  background-color: var(--text-color);
+  transition: var(--transition);
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 300px;
+  height: 100vh;
+  background-color: var(--darker-bg);
+  padding: 6rem 2rem 2rem;
+  transition: var(--transition);
+  z-index: 1000;
+  overflow-y: auto;
+
+  &.active {
+    right: 0;
+  }
+}
+
+.mobileNav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mobileNavItem {
+  position: relative;
+}
+
+.mobileNavLink {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.mobileSectionsBtn {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+}
+
+.mobileSectionsList {
+  list-style: none;
+  margin-top: 1rem;
+  padding-left: 1rem;
+  display: none;
+
+  &.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+
+    & + .mobileSectionsBtn svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.mobileSectionLink {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: block;
+  padding: 0.5rem 0;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media (max-width: 576px) {
+  .headerContainer {
+    padding: 1rem;
+  }
+
+  .logoText {
+    font-size: 1rem;
+  }
+
+  .logoIcon {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+}
+
+.inactive {
+  cursor: default;
+  pointer-events: none;
+}

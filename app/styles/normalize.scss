@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-color);
+}
+
+.inactive {
+  cursor: default;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.sections-dropdown,
+.mobile-sections-btn {
+  cursor: pointer;
+}
+
+html {
+  font-size: 16px;
+}
