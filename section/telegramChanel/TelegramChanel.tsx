@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./telegram.module.scss";
 
+import myTelegramImg from "@/assets/img/talkAboutWeb.png";
+import itNews from "@/assets/img/ITNews.png";
+
 interface TelegramChannel {
   imageSrc: string;
   imageAlt: string;
@@ -13,7 +16,7 @@ interface TelegramChannel {
 
 const telegramChannels: TelegramChannel[] = [
   {
-    imageSrc: "/assets/img/talkAboutWeb.png",
+    imageSrc: myTelegramImg,
     imageAlt: "Frontend Insights",
     title: "Андрей Валюк || поговорим о web",
     description:
@@ -22,7 +25,7 @@ const telegramChannels: TelegramChannel[] = [
     link: "https://t.me/talk_about_web",
   },
   {
-    imageSrc: "/assets/img/ITNews.png",
+    imageSrc: itNews,
     imageAlt: "Tech News Digest",
     title: "IT News",
     description:

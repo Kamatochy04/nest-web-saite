@@ -12,35 +12,33 @@
 }
 
 .heroContent {
+  z-index: 3;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .heroTopTitle {
   font-size: 1.5rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-  color: var(--text-secondary);
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  // color: var(--text-secondary);
 }
 
 .heroTitle {
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  background: linear-gradient(to right, #6e45e2, #88d3ce);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #bac700;
+
   line-height: 1.2;
 }
 
 .heroSubtitle {
   font-size: 1.2rem;
   font-weight: 400;
-  margin-bottom: 2.5rem;
-  color: var(--text-secondary);
+  color: #ffffffe0;
   line-height: 1.5;
-  max-width: 800px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -104,6 +102,28 @@
   }
 }
 
+.img {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  stroke-width: 400px;
+  animation: drow 16s linear infinite;
+  stroke-dashoffset: 3000;
+  stroke-dasharray: 4000;
+}
+
+@keyframes drow {
+  0% {
+    stroke-dashoffset: 3000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
 .heroTopTitle {
   transition-delay: 0.1s;
 }
@@ -163,7 +183,7 @@
   color: var(--accent-color);
   padding: 0.5rem 2rem;
   margin-right: 2rem;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgb(0, 19, 74);
   border-radius: 50px;
 }
 

@@ -2,20 +2,12 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import styles from "./main.module.scss";
-
-interface StatItem {
-  number: string;
-  label: string;
-}
-
+import BgIcon from "@/assets/icons/main_bg.svg";
+import Image from "next/image";
+import MainBgIcon from "@/assets/icons/MainBgIcon";
 interface Technology {
   name: string;
 }
-
-const stats: StatItem[] = [
-  { number: "2+", label: "Года опыта" },
-  { number: "6", label: "Завершенных проектов" },
-];
 
 const frontendTechnologies: Technology[] = [
   { name: "HTML5" },
@@ -65,6 +57,9 @@ const Main: React.FC = () => {
 
   return (
     <section className={styles.hero} ref={heroRef}>
+      <div className={styles.bgIcon}>
+        <MainBgIcon className={styles.img} />
+      </div>
       <div className={styles.heroContent}>
         <h3 className={`${styles.heroTopTitle} ${styles.animateOnScroll}`}>
           Hi. I'm Web Developer
@@ -78,20 +73,10 @@ const Main: React.FC = () => {
           моими проектами и профессиональными навыками. Открыт к интересным
           проектам и коллаборациям. Давайте обсудим ваши идеи!
         </h2>
-
-        <div className={`${styles.heroStats} ${styles.animateOnScroll}`}>
-          {stats.map((stat, index) => (
-            <div key={index} className={styles.statItem__main}>
-              <div className={styles.statNumber}>{stat.number}</div>
-              <div className={styles.statLabel}>{stat.label}</div>
-            </div>
-          ))}
-        </div>
       </div>
 
       <div className={styles.techSliders}>
         <div className={styles.sliderContainer}>
-          <h4 className={styles.sliderTitle}>Frontend технологии</h4>
           <div className={`${styles.sliderTrack} ${styles.frontendTrack}`}>
             {[...frontendTechnologies, ...frontendTechnologies].map(
               (tech, index) => (
@@ -103,7 +88,6 @@ const Main: React.FC = () => {
           </div>
         </div>
         <div className={styles.sliderContainer}>
-          <h4 className={styles.sliderTitle}>Backend технологии</h4>
           <div className={`${styles.sliderTrack} ${styles.backendTrack}`}>
             {[...backendTechnologies, ...backendTechnologies].map(
               (tech, index) => (

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./about.module.scss";
+import meImg from "@/assets/img/Me.jpg";
 
 interface SocialLink {
   href: string;
@@ -89,8 +90,9 @@ const About: React.FC = () => {
         <div className={styles.aboutContent}>
           <div className={styles.aboutImage}>
             <div className={styles.imagePlaceholder}>
+              <img src={meImg} alt="" />
               <Image
-                src="/assets/img/Me.jpg"
+                src={meImg}
                 alt="Andrey Valiuk"
                 width={350}
                 height={350}
