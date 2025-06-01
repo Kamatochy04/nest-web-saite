@@ -90,7 +90,6 @@ const About: React.FC = () => {
         <div className={styles.aboutContent}>
           <div className={styles.aboutImage}>
             <div className={styles.imagePlaceholder}>
-              <img src={meImg} alt="" />
               <Image
                 src={meImg}
                 alt="Andrey Valiuk"

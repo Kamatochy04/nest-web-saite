@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import styles from "./telegram.module.scss";
 
@@ -6,7 +6,7 @@ import myTelegramImg from "@/assets/img/talkAboutWeb.png";
 import itNews from "@/assets/img/ITNews.png";
 
 interface TelegramChannel {
-  imageSrc: string;
+  imageSrc: string | StaticImageData;
   imageAlt: string;
   title: string;
   description: string;
